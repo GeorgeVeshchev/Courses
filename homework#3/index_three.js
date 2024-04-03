@@ -1,0 +1,13 @@
+console.log(typeof undefined);
+console.log(typeof null);
+console.log(typeof true); 
+console.log(typeof 42);
+console.log(typeof "Hello");
+console.log(typeof Symbol("symbol"));
+console.log(typeof function(){}); 
+console.log(typeof {});
+console.log(typeof []);
+console.log(typeof new Date());
+console.log(typeof new Map());
+console.log(typeof new Set());
+console.log(typeof new Error());
