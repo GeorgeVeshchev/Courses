@@ -1,6 +1,6 @@
 let numbers = prompt('Введіть пятизначне число');
 
-let digits = number.split('');
+let digits = numbers.split('');
 
 let result = digits.join(' '); 
 
