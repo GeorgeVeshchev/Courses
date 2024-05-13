@@ -23,7 +23,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     let phoneError = document.getElementById("phoneError");
     let phoneRegex = /^\+380\d{9}$/;
     if (!phoneRegex.test(phoneInput.value.trim())) {
-      phoneError.textContent = "Invalid phone number (must start with +380)";
+      phoneError.textContent = "Неверный ввод номера (он должен начинаться с +380)";
       return;
     } else {
       phoneError.textContent = "";
@@ -34,7 +34,7 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     let emailError = document.getElementById("emailError");
     let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(emailInput.value.trim())) {
-      emailError.textContent = "Invalid email format";
+      emailError.textContent = "Неверно введено email";
       return;
     } else {
       emailError.textContent = "";
