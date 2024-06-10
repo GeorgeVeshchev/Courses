@@ -1,0 +1,18 @@
+.todo-item {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+.todo-item:hover {
+    background-color: #f8f9fa;
+}
+.delete-btn {
+    cursor: pointer;
+    color: red;
+    transition: transform 0.2s ease;
+}
+.delete-btn:hover {
+    transform: scale(1.2);
+}
