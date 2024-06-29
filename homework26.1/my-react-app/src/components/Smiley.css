@@ -1,0 +1,17 @@
+.container {
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .smiley {
+    font-size: 3em;
+    cursor: pointer;
+    user-select: none; 
+  }
+  
+  .count {
+    font-size: 1em;
+    color: #555;
+  }
+  
