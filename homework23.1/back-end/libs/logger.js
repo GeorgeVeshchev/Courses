@@ -9,7 +9,7 @@ const warn = (...args) => {
 }
 
 const error = (...args) => {
-    console.log(chalk.red(...args));
+    console.log(chalk.red                               (...args));
 }
 
 export const logger = { info , warn , error };
