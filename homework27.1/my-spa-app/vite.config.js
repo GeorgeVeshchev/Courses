@@ -10,7 +10,7 @@ export default defineConfig({
     open: true ,
     proxy: {
       '/api' : {
-        targer : 'http://localohost:5000',
+        target : 'http://localohost:5000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/,'')
 

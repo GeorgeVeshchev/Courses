@@ -1,22 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Header.css'
 
-function Header() {
-  const [theme, setTheme] = useState('light');
 
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    document.body.classList.toggle('dark-theme', newTheme === 'dark');
-    setTheme(newTheme);
-  };
-
+function Header({ toggleTheme, theme }) {
   return (
     <header>
       <nav>
         <Link to="/">Головна</Link>
         <Link to="/contacts">Контакти</Link>
         <Link to="/about">Про мене</Link>
-        <button onClick={toggleTheme}>Змінити тему</button>
+        <button onClick={toggleTheme}>
+          {theme === 'light' ? 'Змінити на темну' : 'Змінити на світлу'}
+        </button>
       </nav>
     </header>
   );

@@ -2,13 +2,16 @@ import express from "express";
 import mongoose from 'mongoose';
 import { logger } from "../libs/logger.js";
 import { todoRouter } from "./controller.js";
+import cors from 'cors';
 
 
 
 
 const app = express(); 
 
-mongoose.connect('mongodb+srv:\/\/kkceeer:Ghora2008348294!!!@cluster.9tmfeyl.mongodb.net\/?retryWrites=true&w=majority&appName=Cluster'); 
+app.use(cors());
+
+mongoose.connect('mongodb+srv://root:root@cluster.9tmfeyl.mongodb.net/?retryWrites=true&w=majority&appName=Cluster'); 
 
 const db = mongoose.connection;
 

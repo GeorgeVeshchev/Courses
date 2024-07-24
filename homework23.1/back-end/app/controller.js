@@ -9,7 +9,7 @@ const service = new TodoService();
 
 todoRouter.get('/', async (req, res) => {
      try {
-       const todos = await Todo.find();
+       const todos = await service.getTodos();
        res.status(200).json(todos); 
      } catch (error) {
        console.error('Ошибка при получении задач:', error);
@@ -32,7 +32,7 @@ todoRouter.get("/todos", async ( req , res ) => {
 
 todoRouter.get("/todos/:id", async ( req , res ) => {
     try {
-         const todos = await TodoService.getTodos(req.params.id);
+         const todos = await service.getTodos(req.params.id);
          res.json(todos);
     }catch(e){
      res.status(500).json({error: `Can't get todos with id: '${req.params.id}'`});
@@ -41,7 +41,8 @@ todoRouter.get("/todos/:id", async ( req , res ) => {
 
 todoRouter.post("/todos" , async ( req , res ) => {
     try {
-         const resp = await TodoService.createTodo(req.body);
+          console.log('here', req.body)
+         const resp = await service.createTodo(req.body);
          res.json(resp);
     }catch(e){
      res.status(500).json({error: `Can't create todo with id: '${req.body.id}'`});
@@ -50,7 +51,7 @@ todoRouter.post("/todos" , async ( req , res ) => {
 
 todoRouter.put("/todos/:id" , async ( req , res ) => {
     try {
-         const resp = await TodoService.updateTodo(req.params.id , req.body);
+         const resp = await service.updateTodo(req.params.id , req.body);
          res.json(resp);
     }catch(e){
      res.status(500).json({error: `Can't update todo with id: '${req.params.id}'`});

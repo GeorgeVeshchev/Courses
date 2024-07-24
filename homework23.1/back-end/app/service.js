@@ -28,6 +28,7 @@ export class TodoService {
     }
 
     async createTodo(todoData) {
+        console.log({todoData})
         try {
             const todo = new TodoModel({
                 _id: new mongoose.Types.ObjectId(),
