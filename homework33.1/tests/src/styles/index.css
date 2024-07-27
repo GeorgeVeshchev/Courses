@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .app {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .add-todo {
+    margin-bottom: 20px;
+  }
+  
+  .add-todo input {
+    padding: 10px;
+    margin-right: 10px;
+  }
+  
+  .add-todo button {
+    padding: 10px;
+  }
+  
+  .todo-list {
+    margin-top: 20px;
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .todo-item span {
+    flex-grow: 1;
+  }
+  
+  .todo-item .completed {
+    text-decoration: line-through;
+  }
+  
+  .filter button {
+    margin-right: 10px;
+    padding: 10px;
+  }
+  
+  .filter .active {
+    font-weight: bold;
+  }
+  
