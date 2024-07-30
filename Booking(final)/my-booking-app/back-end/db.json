@@ -1,0 +1,11 @@
+{
+    "destinations": [
+      { "id": 1, "name": "New York" },
+      { "id": 2, "name": "Los Angeles" }
+    ],
+    "hotels": [
+      { "id": 1, "name": "Hotel A", "location": "New York", "image": "https://www.newyorkgid.com/oteli-s-vidom-v-new-yorke" },
+      { "id": 2, "name": "Hotel B", "location": "Los Angeles", "image": "https://ideateka.travel/2017/02/23/hotels_hostels_la/" }
+    ]
+  }
+  
