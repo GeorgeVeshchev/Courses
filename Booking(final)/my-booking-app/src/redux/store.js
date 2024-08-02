@@ -1,22 +1,18 @@
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { createReduxHistoryContext } from 'redux-first-history';
+import { routerMiddleware } from 'react-router-redux';
 import { createBrowserHistory } from 'history';
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import rootReducer from './reducers.js';
+import rootSaga from './sagas.js';
 
-const history = createBrowserHistory();
-const { createReduxHistory, reduxFirstHistoryMiddleware } = createReduxHistoryContext({
-  history,
-});
-
+export const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  rootReducer(history),
-  applyMiddleware(sagaMiddleware, reduxFirstHistoryMiddleware)
+  rootReducer,
+  applyMiddleware(sagaMiddleware, routerMiddleware(history))
 );
 
 sagaMiddleware.run(rootSaga);
 
-export { store, history };
+export default store;

@@ -1,11 +1,54 @@
 {
-    "destinations": [
-      { "id": 1, "name": "New York" },
-      { "id": 2, "name": "Los Angeles" }
-    ],
-    "hotels": [
-      { "id": 1, "name": "Hotel A", "location": "New York", "image": "https://www.newyorkgid.com/oteli-s-vidom-v-new-yorke" },
-      { "id": 2, "name": "Hotel B", "location": "Los Angeles", "image": "https://ideateka.travel/2017/02/23/hotels_hostels_la/" }
-    ]
-  }
-  
+  "hotels": [
+    {
+      "id": 1,
+      "name": "Hotel Sunshine",
+      "destination": "Paris",
+      "availableFrom": "2024-08-01",
+      "availableTo": "2024-08-15",
+      "price": 120,
+      "rating": 4.5,
+      "image": "https://www.menslife.com/upload/images/2019/10/2020/The%20Oberoi%20%D0%90marvila.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Mountain Retreat",
+      "destination": "Swiss Alps",
+      "availableFrom": "2024-09-01",
+      "availableTo": "2024-09-30",
+      "price": 200,
+      "rating": 4.8,
+      "image": "https://www.menslife.com/upload/images/2019/10/2020/Burj%20Al%20Arab.jpg"
+    },
+    {
+      "id": 3,
+      "name": "City Lights Hotel",
+      "destination": "New York",
+      "availableFrom": "2024-10-01",
+      "availableTo": "2024-10-31",
+      "price": 150,
+      "rating": 4.2,
+      "image": "https://www.menslife.com/upload/iblock/4f1/marina_bay_sands_hotel_casino_skypark_singapore_from_waterfront_esplanade.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Beachside Resort",
+      "destination": "Miami",
+      "availableFrom": "2024-07-01",
+      "availableTo": "2024-07-31",
+      "price": 180,
+      "rating": 4.7,
+      "image": "https://www.menslife.com/upload/images/2019/10/2020/%D0%95mirates%20Palace.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Countryside Inn",
+      "destination": "Napa Valley",
+      "availableFrom": "2024-08-10",
+      "availableTo": "2024-08-20",
+      "price": 110,
+      "rating": 4.4,
+      "image": "https://www.menslife.com/upload/images/2019/10/2020/%20Mardan%20Palace.jpg"
+    }
+  ]
+}
