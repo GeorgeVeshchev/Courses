@@ -15,7 +15,7 @@ const Navbar = () => {
         <Button variant="contained" color="secondary" component={Link} to="/about" style={{ marginRight: 8 }}>
           About
         </Button>
-        <Button variant="contained" color="success" component={Link} to="/hotels">
+        <Button variant="contained" color="primary" component={Link} to="/hotels">
           Hotels
         </Button>
       </nav>
