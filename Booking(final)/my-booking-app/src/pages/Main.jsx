@@ -19,7 +19,6 @@ const MainPage = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    // Filter hotels based on searchParams
     const filtered = hotels.filter(hotel => 
       (searchParams.destination ? hotel.name.toLowerCase().includes(searchParams.destination.toLowerCase()) : true)
     );
@@ -50,7 +49,6 @@ const MainPage = () => {
 
   return (
     <div>
-      {/* Navbar */}
       <AppBar position="static" sx={{ mb: 4, backgroundColor: 'transparent', borderBottom: '1px solid orange' }}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1, color: 'orange' }}>
@@ -75,19 +73,19 @@ const MainPage = () => {
         </Toolbar>
       </AppBar>
 
-      {/* Main Content */}
+      
       <Box
         component="form"
         onSubmit={handleSearch}
         sx={{ 
           display: 'flex',
           flexDirection: 'column',
-          alignItems: 'flex-end', // Align forms to the right
+          alignItems: 'flex-end',
           maxWidth: 600,
           mx: 'auto',
           padding: 2,
           borderRadius: 2,
-          backgroundColor: 'rgba(255, 255, 255, 0.9)' // Slightly transparent white background
+          backgroundColor: 'rgba(255, 255, 255, 0.9)' 
         }}
       >
         <Typography variant="h5" gutterBottom sx={{ mb: 2 }}>
@@ -99,21 +97,21 @@ const MainPage = () => {
           sx={{ 
             display: 'flex', 
             flexWrap: 'wrap', 
-            gap: 2,  // Increased gap between fields
+            gap: 2,  
             mb: 2 
           }}
         >
-          {/* Destination Field */}
+         
           <TextField
             label="Destination"
             variant="outlined"
             size="small"
             value={destination}
             onChange={(e) => setDestination(e.target.value)}
-            sx={{ width: 150, ml: 2 }} // Right margin to move it further right
+            sx={{ width: 150, ml: 2 }}
           />
 
-          {/* Check-In Date Field */}
+         
           <TextField
             label="Check-In Date"
             type="date"
@@ -122,10 +120,9 @@ const MainPage = () => {
             InputLabelProps={{ shrink: true }}
             value={checkIn}
             onChange={(e) => setCheckIn(e.target.value)}
-            sx={{ width: 150, ml: 2 }} // Right margin to move it further right
+            sx={{ width: 150, ml: 2 }} 
           />
 
-          {/* Check-Out Date Field */}
           <TextField
             label="Check-Out Date"
             type="date"
@@ -134,11 +131,11 @@ const MainPage = () => {
             InputLabelProps={{ shrink: true }}
             value={checkOut}
             onChange={(e) => setCheckOut(e.target.value)}
-            sx={{ width: 150, ml: 2 }} // Right margin to move it further right
+            sx={{ width: 150, ml: 2 }} 
           />
         </Box>
 
-        {/* Buttons */}
+       
         <Box>
           <Button
             variant="contained"
@@ -160,7 +157,7 @@ const MainPage = () => {
 
       {showHotels && filteredHotels.length > 0 && (
         <div>
-          <Typography variant="h6" gutterBottom mt={4} align="center"> {/* Center the title */}
+          <Typography variant="h6" gutterBottom mt={4} align="center"> 
             Available Hotels
           </Typography>
           <Box 
@@ -168,11 +165,11 @@ const MainPage = () => {
               display: 'flex', 
               flexWrap: 'wrap', 
               justifyContent: 'center', 
-              gap: 2 // Space between items
+              gap: 2 
             }}
           >
             {filteredHotels.map(hotel => (
-              <Card key={hotel.id} sx={{ maxWidth: 345, m: 1 }}> {/* Margin to avoid tight fit */}
+              <Card key={hotel.id} sx={{ maxWidth: 345, m: 1 }}> 
                 <CardMedia
                   component="img"
                   alt={hotel.name}
