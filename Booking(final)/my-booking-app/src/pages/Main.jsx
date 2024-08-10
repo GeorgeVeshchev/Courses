@@ -1,43 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchHotelsRequest, searchHotels } from '../redux/actions.js';
-import { TextField, Button, Grid, Box, Typography, Card, CardContent, CardMedia, AppBar, Toolbar } from '@mui/material';
+import React from 'react';
+import { TextField, Button, Box, Typography, Card, CardContent, CardMedia, AppBar, Toolbar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import useHotels from '../hooks/useHotels.js';
+
 
 const MainPage = () => {
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { hotels, searchParams } = useSelector(state => state.hotels);
-  const [destination, setDestination] = useState('');
-  const [checkIn, setCheckIn] = useState('');
-  const [checkOut, setCheckOut] = useState('');
-  const [filteredHotels, setFilteredHotels] = useState([]);
-  const [showHotels, setShowHotels] = useState(false);
-
-  useEffect(() => {
-    dispatch(fetchHotelsRequest());
-  }, [dispatch]);
-
-  useEffect(() => {
-    const filtered = hotels.filter(hotel => 
-      (searchParams.destination ? hotel.name.toLowerCase().includes(searchParams.destination.toLowerCase()) : true)
-    );
-    setFilteredHotels(filtered);
-    if (searchParams.destination) setShowHotels(true);
-  }, [searchParams, hotels]);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    dispatch(searchHotels({ destination, checkIn, checkOut }));
-  };
-
-  const handleClearFilters = () => {
-    setDestination('');
-    setCheckIn('');
-    setCheckOut('');
-    dispatch(searchHotels({ destination: '', checkIn: '', checkOut: '' }));
-    setShowHotels(false);
-  };
+  const {
+    destination,
+    updateDestination,
+    checkIn,
+    updateCheckIn,
+    checkOut,
+    updateCheckOut,
+    filteredHotels,
+    showHotels,
+    handleSearch,
+    handleClearFilters
+  } = useHotels();
 
   const handleGoToAbout = () => {
     navigate('/about');
@@ -73,7 +53,6 @@ const MainPage = () => {
         </Toolbar>
       </AppBar>
 
-      
       <Box
         component="form"
         onSubmit={handleSearch}
@@ -92,7 +71,6 @@ const MainPage = () => {
           Find Your Perfect Hotel
         </Typography>
 
-        {/* Form Row */}
         <Box
           sx={{ 
             display: 'flex', 
@@ -101,17 +79,15 @@ const MainPage = () => {
             mb: 2 
           }}
         >
-         
           <TextField
             label="Destination"
             variant="outlined"
             size="small"
             value={destination}
-            onChange={(e) => setDestination(e.target.value)}
+            onChange={(e) => updateDestination(e.target.value)}
             sx={{ width: 150, ml: 2 }}
           />
 
-         
           <TextField
             label="Check-In Date"
             type="date"
@@ -119,7 +95,7 @@ const MainPage = () => {
             size="small"
             InputLabelProps={{ shrink: true }}
             value={checkIn}
-            onChange={(e) => setCheckIn(e.target.value)}
+            onChange={(e) => updateCheckIn(e.target.value)}
             sx={{ width: 150, ml: 2 }} 
           />
 
@@ -130,12 +106,11 @@ const MainPage = () => {
             size="small"
             InputLabelProps={{ shrink: true }}
             value={checkOut}
-            onChange={(e) => setCheckOut(e.target.value)}
+            onChange={(e) => updateCheckOut(e.target.value)}
             sx={{ width: 150, ml: 2 }} 
           />
         </Box>
 
-       
         <Box>
           <Button
             variant="contained"
@@ -178,10 +153,12 @@ const MainPage = () => {
                   title={hotel.name}
                 />
                 <CardContent>
-                  <Typography variant="h6">{hotel.name}</Typography>
-                  <Typography color="textSecondary">{hotel.destination}</Typography>
-                  <Typography color="textSecondary">Price: ${hotel.price}</Typography>
-                  <Typography color="textSecondary">Rating: {hotel.rating}</Typography>
+                  <Typography variant="h5" component="div">
+                    {hotel.name}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {hotel.description}
+                  </Typography>
                 </CardContent>
               </Card>
             ))}

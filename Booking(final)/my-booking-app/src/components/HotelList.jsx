@@ -1,4 +1,3 @@
-// HotelList.jsx
 import React from 'react';
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from '@mui/material';
 

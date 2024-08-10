@@ -50,7 +50,7 @@ const DestinationForm = ({ onSearch }) => {
         </Grid>
       </Grid>
       <Box mt={2}>
-        <Button variant="contained" color="primary" type="submit">
+        <Button variant="small" color="primary" type="submit">
           Search
         </Button>
       </Box>

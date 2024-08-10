@@ -4,6 +4,7 @@ import Main from './pages/Main';
 import About from './pages/About';
 import Hotels from './pages/Hotels';
 
+
 function App() {
   return (
     <Routes>
