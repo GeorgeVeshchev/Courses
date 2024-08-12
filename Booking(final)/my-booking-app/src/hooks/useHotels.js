@@ -1,10 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { searchHotels, clearSearchParams, setDestination, setCheckIn, setCheckOut } from '../redux/hotelsSlice.js';
+import { useDispatch, useSelector  } from 'react-redux';
+import { useEffect } from 'react';
+import { searchHotels, clearSearchParams, setDestination, setCheckIn, setCheckOut , fetchHotels } from '../redux/hotelsSlice.js';
 
 
 const useHotels = () => {
   const dispatch = useDispatch();
-  const { destination, checkIn, checkOut, filteredHotels, showHotels } = useSelector((state) => state.hotels.searchParams);
+  const { destination, checkIn, checkOut } = useSelector((state) => state.hotels.searchParams);
+  const {  filteredHotels, showHotels } = useSelector((state) => state.hotels);
+
+
+
+
+  useEffect(()=>{
+    dispatch(fetchHotels());
+    },[dispatch]);
+
 
   const handleSearch = (e) => {
     e.preventDefault();

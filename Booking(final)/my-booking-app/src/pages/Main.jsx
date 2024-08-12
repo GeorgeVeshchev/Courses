@@ -1,8 +1,8 @@
 import React from 'react';
-import { TextField, Button, Box, Typography, Card, CardContent, CardMedia, AppBar, Toolbar } from '@mui/material';
+import { Button, Box, Typography, Card, CardContent, CardMedia, AppBar, Toolbar } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import useHotels from '../hooks/useHotels.js';
-
+import SearchFields from '../components/SearchFields.jsx';  
 
 const MainPage = () => {
   const navigate = useNavigate();
@@ -71,45 +71,14 @@ const MainPage = () => {
           Find Your Perfect Hotel
         </Typography>
 
-        <Box
-          sx={{ 
-            display: 'flex', 
-            flexWrap: 'wrap', 
-            gap: 2,  
-            mb: 2 
-          }}
-        >
-          <TextField
-            label="Destination"
-            variant="outlined"
-            size="small"
-            value={destination}
-            onChange={(e) => updateDestination(e.target.value)}
-            sx={{ width: 150, ml: 2 }}
-          />
-
-          <TextField
-            label="Check-In Date"
-            type="date"
-            variant="outlined"
-            size="small"
-            InputLabelProps={{ shrink: true }}
-            value={checkIn}
-            onChange={(e) => updateCheckIn(e.target.value)}
-            sx={{ width: 150, ml: 2 }} 
-          />
-
-          <TextField
-            label="Check-Out Date"
-            type="date"
-            variant="outlined"
-            size="small"
-            InputLabelProps={{ shrink: true }}
-            value={checkOut}
-            onChange={(e) => updateCheckOut(e.target.value)}
-            sx={{ width: 150, ml: 2 }} 
-          />
-        </Box>
+        <SearchFields 
+          destination={destination}
+          updateDestination={updateDestination}
+          checkIn={checkIn}
+          updateCheckIn={updateCheckIn}
+          checkOut={checkOut}
+          updateCheckOut={updateCheckOut}
+        />
 
         <Box>
           <Button

@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { useEffect } from 'react';
 import api from '../api/api.js';
 
 // Асинхронный экшен для получения списка отелей
@@ -36,7 +37,8 @@ const hotelsSlice = createSlice({
     },
     searchHotels: (state) => {
       const { destination, checkIn, checkOut } = state.searchParams;
-
+    
+    
       console.log('Filter criteria:', { destination, checkIn, checkOut });
       
       state.filteredHotels = state.hotels.filter(hotel => {
